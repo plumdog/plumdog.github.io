@@ -1,0 +1,134 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Andrew Plummer - Blog - Django Migration Tests in 1.7</title>
+    <meta name="description" content="
+    Andrew Plummer's Blog - Django Migration Tests in 1.7 (or Test all the things, especially the ones that make big changes to your database)
+" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css?_/1" />
+    <link rel="stylesheet" type="text/css" href="/static/pygmentsfriendly.css?_/1" />
+    <script type="text/javascript" src="/static/app.js?_/1"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57205043-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <span class="checkbox">Auto Width? <input type="checkbox" name="fixed-width-toggle" id="fixed-width-toggle" /></span>
+    <div class="navbar" id="top-navbar">
+        <a href="/">Home</a>
+        <a href="/projects/">My Projects</a>
+        <a href="/blog/">Blog</a>
+    </div>
+    <div class="container" id="content-container">
+        
+
+    <div class="blog-post">
+
+        
+            <p class="next-and-prev">
+                
+                    <span class="prev">
+                        Prev: <a href="/post/all-change.html">All Change</a>
+                    </span>
+                
+
+                
+                    <span class="next">
+                        Next: <a href="/post/finding-the-joys-in-javascript.html">Finding the Joys in JavaScript</a>
+                    </span>
+                
+        
+
+        <div class="titles">
+            <h2>Django Migration Tests in 1.7</h2>
+            
+                <p class="or">~~ or ~~</p>
+                <h3 class="subtitle">Test all the things, especially the ones that make big changes to your database</h3>
+            
+        </div>
+
+        
+            <p>
+                <span class="tags">Tags:
+                    
+                        <a href="/post/tag/django.html">Django</a>
+                    
+                        <a href="/post/tag/python.html">Python</a>
+                    
+                </span>
+            </p>
+        
+        <div class="blog-post-content"><p>A while ago, I wrote my first Django migration that actually mattered,
+and was a data migration rather than a nice, simple, auto generated
+one for adding columns. I am of the view that migrations are
+scary. Especially data migrations, where you're shuffling data around
+in your tables. If you're scared about something being wrong, then
+right a test; and so I found
+<a href="https://micknelson.wordpress.com/2013/03/01/testing-django-migrations/">this</a>.</p>
+<p>The post describes a TestCase subclass that sets the database to a
+starting migration state, lets you add some data, run the migrations
+through to a new state, then assert things about how the data now
+looks. This seems like an excellent way to gain some confidence that
+your migrations mutates your data in the correct way. However, the
+linked article assumes South migrations are being used, so is no help
+for Django&gt;=1.7, which is why I wrote
+<a href="https://github.com/plumdog/django_migration_test">django_migration_test</a>,
+which aims to work with Django's new migrations framework.</p>
+<p>I'm keen to find out if it actually works in various edge cases and
+database engines. I also want to know if this is actually a solved
+problem, or if this is not the best way of testing in this case. It's
+<a href="https://pypi.python.org/pypi/django-migration-test/">on PyPI</a>, and
+you can install it with</p>
+<p><code>pip install django-migration-test</code></p>
+<p>and then write a test that looks a bit like:</p>
+<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">django_migration_test</span> <span class="kn">import</span> <span class="n">MigrationTest</span>
+
+
+<span class="k">class</span> <span class="nc">MyMigrationTest</span><span class="p">(</span><span class="n">MigrationTest</span><span class="p">):</span>
+
+    <span class="c"># At present, we can only run migrations for one app at a time.</span>
+    <span class="n">app_name</span> <span class="o">=</span> <span class="s">&#39;my_app&#39;</span>
+    <span class="c"># At present, these need to be full names of migrations, not just</span>
+    <span class="c"># prefixes.</span>
+    <span class="n">before</span> <span class="o">=</span> <span class="s">&#39;0001_initial&#39;</span>
+    <span class="n">after</span> <span class="o">=</span> <span class="s">&#39;0002_change_fields&#39;</span>
+
+    <span class="c"># Can have any name, is just a test method. MigrationTest</span>
+    <span class="c"># subclasses django.test.TestCase</span>
+    <span class="k">def</span> <span class="nf">test_migration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># Load some data. Don&#39;t directly import models. At this point,</span>
+        <span class="c"># the database is at self.before, and the models have fields</span>
+        <span class="c"># set accordingly.</span>
+
+        <span class="n">MyModel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_model_before</span><span class="p">(</span><span class="s">&#39;MyModel&#39;</span><span class="p">)</span>
+
+        <span class="c"># ... save some models</span>
+
+        <span class="c"># Trigger the migration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_migration</span><span class="p">()</span>
+
+        <span class="c"># Now run some assertions based on what the data should now</span>
+        <span class="c"># look like. The database will now be at self.after. To run</span>
+        <span class="c"># queries via the models, reload the model.</span>
+
+        <span class="n">MyModel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_model_after</span><span class="p">(</span><span class="s">&#39;MyModel&#39;</span><span class="p">)</span>
+</pre></div></div>
+    </div>
+
+
+    </div>
+</body>
+</html>

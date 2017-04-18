@@ -1,0 +1,106 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Andrew Plummer - Blog - My First Linux Kernel Patch Submission</title>
+    <meta name="description" content="
+    Andrew Plummer's Blog - My First Linux Kernel Patch Submission (or Fiddling with documentation is easy)
+" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css?_/1" />
+    <link rel="stylesheet" type="text/css" href="/static/pygmentsfriendly.css?_/1" />
+    <script type="text/javascript" src="/static/app.js?_/1"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57205043-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <span class="checkbox">Auto Width? <input type="checkbox" name="fixed-width-toggle" id="fixed-width-toggle" /></span>
+    <div class="navbar" id="top-navbar">
+        <a href="/">Home</a>
+        <a href="/projects/">My Projects</a>
+        <a href="/blog/">Blog</a>
+    </div>
+    <div class="container" id="content-container">
+        
+
+    <div class="blog-post">
+
+        
+            <p class="next-and-prev">
+                
+                    <span class="prev">
+                        Prev: <a href="/post/rebuilds.html">Rebuilds</a>
+                    </span>
+                
+
+                
+                    <span class="next">
+                        Next: <a href="/post/new-beginnings.html">New Beginnings</a>
+                    </span>
+                
+        
+
+        <div class="titles">
+            <h2>My First Linux Kernel Patch Submission</h2>
+            
+                <p class="or">~~ or ~~</p>
+                <h3 class="subtitle">Fiddling with documentation is easy</h3>
+            
+        </div>
+
+        
+            <p>
+                <span class="tags">Tags:
+                    
+                        <a href="/post/tag/learning.html">Learning</a>
+                    
+                        <a href="/post/tag/linux.html">Linux</a>
+                    
+                </span>
+            </p>
+        
+        <div class="blog-post-content"><p>So, I don't really know much more than the basics of C -- though I
+rather hope that will soon change -- but since having my first
+pull-request on GitHub accepted back in May, contributing to the Linux
+Kernel seemed like a reasonable next step.</p>
+<p>The Linux Kernel is an enormous body of code. Somewhere in the region
+15 million lines of C and Assembly. Development is not driven by any
+one company, and not even really by one organisation. The <a href="http://www.linuxfoundation.org/">Linux
+Foundation</a> describes itself as</p>
+<blockquote>
+<p>a non-profit consortium dedicated to fostering the growth of Linux</p>
+</blockquote>
+<p>It doesn't steer development, and to quote Linus</p>
+<blockquote>
+<p>Linux is evolution, not intelligent design</p>
+</blockquote>
+<p>Its just a lot of developers submitting code to other developers, and
+so on, until it reaches Linus at the top of the tree, and that's how
+the Kernel happens. There are a lot of companies that do employ people
+full-time to contribute, but anyone can if they are so inclined.</p>
+<p>And I am. My first patch is just to tweak the format of some
+documentation comments in the code to conform with the comment
+style. Honestly, I don't even know what the file is for. I know its
+for a driver, but no idea what that driver is for. But I don't need
+to. The Kernel is updated often in tiny, easy to verify alterations,
+and that's what I can (try to) provide.</p>
+<p>My change is <a href="https://lkml.org/lkml/2014/8/29/477">here in all its glory</a>.</p>
+<p>Let's hope there are more in the future.</p></div>
+    </div>
+
+
+    </div>
+</body>
+</html>

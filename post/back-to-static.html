@@ -1,0 +1,90 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Andrew Plummer - Blog - Back to Static</title>
+    <meta name="description" content="
+    Andrew Plummer's Blog - Back to Static (or I'm better at version control than at doing backups)
+" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css?_/1" />
+    <link rel="stylesheet" type="text/css" href="/static/pygmentsfriendly.css?_/1" />
+    <script type="text/javascript" src="/static/app.js?_/1"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57205043-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <span class="checkbox">Auto Width? <input type="checkbox" name="fixed-width-toggle" id="fixed-width-toggle" /></span>
+    <div class="navbar" id="top-navbar">
+        <a href="/">Home</a>
+        <a href="/projects/">My Projects</a>
+        <a href="/blog/">Blog</a>
+    </div>
+    <div class="container" id="content-container">
+        
+
+    <div class="blog-post">
+
+        
+            <p class="next-and-prev">
+                
+                    <span class="prev">
+                        Prev: <a href="/post/django-migration-testcase.html">Django Migration Testcase</a>
+                    </span>
+                
+
+                
+                    <span class="next">
+                        Next: <a href="/post/python-dev-starting-steps.html">Python Dev - Starting Steps</a>
+                    </span>
+                
+        
+
+        <div class="titles">
+            <h2>Back to Static</h2>
+            
+                <p class="or">~~ or ~~</p>
+                <h3 class="subtitle">I'm better at version control than at doing backups</h3>
+            
+        </div>
+
+        
+        <div class="blog-post-content"><p>So I've moved this site to just use static HTML files, using Jinja2 as
+templating. The benefit of this is that it means everything is stored
+in version control and there is no database.</p>
+<p>Having no database removes the hassle of having to deal with
+backups. All the data for the site that I care about is checked into
+git, and that's the end of it. This make it much much harder for me to
+lose data and means I have the history of any changes.</p>
+<p>This also means that I can type into a text file rather than into a
+browser window.</p>
+<p>Hosting is still (at present) on Heroku, which has the following benefits:</p>
+<ul>
+<li>being free, for a site of this size</li>
+<li>I have already setup the DNS</li>
+<li>I already have an account on Heroku</li>
+</ul>
+<p>However, the deployment is a little bit of a hack. It uses the fact
+that Heroku's default PHP deployment just serves static files. So we
+do just enough to let Heroku believe that we are deploying PHP, and
+the rest just happens. Moving it to S3 would probably make more sense,
+but there's not much incentive given that Heroku is free and good
+enough for what I want it to do.</p></div>
+    </div>
+
+
+    </div>
+</body>
+</html>

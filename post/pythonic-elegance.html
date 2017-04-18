@@ -1,0 +1,114 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Andrew Plummer - Blog - Pythonic Elegance</title>
+    <meta name="description" content="
+    Andrew Plummer's Blog - Pythonic Elegance (or How cdecimal saved the day)
+" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css?_/1" />
+    <link rel="stylesheet" type="text/css" href="/static/pygmentsfriendly.css?_/1" />
+    <script type="text/javascript" src="/static/app.js?_/1"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57205043-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <span class="checkbox">Auto Width? <input type="checkbox" name="fixed-width-toggle" id="fixed-width-toggle" /></span>
+    <div class="navbar" id="top-navbar">
+        <a href="/">Home</a>
+        <a href="/projects/">My Projects</a>
+        <a href="/blog/">Blog</a>
+    </div>
+    <div class="container" id="content-container">
+        
+
+    <div class="blog-post">
+
+        
+            <p class="next-and-prev">
+                
+                    <span class="prev">
+                        Prev: <a href="/post/premature-complications.html">Premature Complications</a>
+                    </span>
+                
+
+                
+                    <span class="next">
+                        Next: <a href="/post/django-migration-testcase.html">Django Migration Testcase</a>
+                    </span>
+                
+        
+
+        <div class="titles">
+            <h2>Pythonic Elegance</h2>
+            
+                <p class="or">~~ or ~~</p>
+                <h3 class="subtitle">How cdecimal saved the day</h3>
+            
+        </div>
+
+        
+            <p>
+                <span class="tags">Tags:
+                    
+                        <a href="/post/tag/coding-concepts.html">Coding Concepts</a>
+                    
+                        <a href="/post/tag/django.html">Django</a>
+                    
+                        <a href="/post/tag/python.html">Python</a>
+                    
+                </span>
+            </p>
+        
+        <div class="blog-post-content"><p>Python's decimal module handles fixed-point arithmetic calculations,
+and before Python 3.3, was implemented in pure Python. The fact that
+there is a reference implementation written in Python is
+excellent. Its portable, it means the source is readable for Python
+people, and it simplifies the tracebacks.</p>
+<p>But it's also slow. And this was a problem. I project I was working on
+recently involved a lot of calculations with Decimal objects, and
+profiling showed that a huge chunk of time was going on the <code>__mul__</code>
+method of Decimal, so I wanted to use <code>cdecimal.Decimal</code> instead of
+<code>decimal.Decimal</code>. But lots of the values came from the database, and
+where stored in Django in DecimalFields, which return standard
+Decimals, and the two types of Decimals are not interoperable. How
+could I make it so that the DecimalFields gave the cdecimal versions,
+not the standard ones?</p>
+<p>Turns out that because they are drop-in replacements, you can update
+<code>sys.modules</code>:</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">cdecimal</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s">&#39;decimal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cdecimal</span>
+</pre></div>
+
+
+<p>So I just needed to put this segment at the top of <code>manage.py</code>(for the
+devserver and shell commands) and <code>wsgi.py</code> (for the WSGI server). And
+then my view function that was taking more than 30 seconds -- and
+dying horribly against Heroku's hard 30 second limit -- was now taking
+less than five seconds.</p>
+<p>There were two things that really impressed me about this. Firstly,
+that cdecimal was so much faster. As of CPython 3.3, it is now the
+default implementation (and, I read, has had even more performance
+improvements). Secondly, how well Python accommodates module-level
+drop in replacements. Guido's time machine strikes again.</p></div>
+    </div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Andrew Plummer - Blog - The Way Testing Feels</title>
+    <meta name="description" content="
+    Andrew Plummer's Blog - The Way Testing Feels (or Putting on Your Dev Armour)
+" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css?_/1" />
+    <link rel="stylesheet" type="text/css" href="/static/pygmentsfriendly.css?_/1" />
+    <script type="text/javascript" src="/static/app.js?_/1"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57205043-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <span class="checkbox">Auto Width? <input type="checkbox" name="fixed-width-toggle" id="fixed-width-toggle" /></span>
+    <div class="navbar" id="top-navbar">
+        <a href="/">Home</a>
+        <a href="/projects/">My Projects</a>
+        <a href="/blog/">Blog</a>
+    </div>
+    <div class="container" id="content-container">
+        
+
+    <div class="blog-post">
+
+        
+            <p class="next-and-prev">
+                
+                    <span class="prev">
+                        Prev: <a href="/post/basic-mechanics-of-programming.html">Basic Mechanics of Programming</a>
+                    </span>
+                
+
+                
+                    <span class="next">
+                        Next: <a href="/post/rebuilds.html">Rebuilds</a>
+                    </span>
+                
+        
+
+        <div class="titles">
+            <h2>The Way Testing Feels</h2>
+            
+                <p class="or">~~ or ~~</p>
+                <h3 class="subtitle">Putting on Your Dev Armour</h3>
+            
+        </div>
+
+        
+            <p>
+                <span class="tags">Tags:
+                    
+                        <a href="/post/tag/coding-concepts.html">Coding Concepts</a>
+                    
+                </span>
+            </p>
+        
+        <div class="blog-post-content"><p>A world where all code was written and the frozen, and all extra
+features were just built entirely 'above' that code would mean that
+all you needed to do was manually test the code you added, confirm it
+works in each path of logic and be really very sure that it was
+correct. However, this world is a) not a pleasant dev world and b) not
+a realistic one. Code always needs to be altered, extended or
+improved. That's a given.</p>
+<p>Let's suppose its you that's changing something existing. You change
+something. Did you break all the other stuff that relied on that?
+Probably. Tests are the only remedy. Change some code, improve an
+algorithm in the backend, adjust the way a process happens in a
+frontend, rewrite a database query to be more efficient. If you have
+tests you're safe, and you <em>feel</em> safe. Boss tells you a client is
+trying out that code, you feel confident, there's no fear of the
+unknown things you never considered. Look at your spec, look at your
+tests -- they should be fairly easy to match up. System needs to be
+able to do something? Ok, lets write the test for that. Even if a bug
+does get reported, write a test that fails, code the fix until the
+test passes, ship it. Then just be confident. Your tests give you the
+armour of confidence.</p>
+<p>I thought of the analogy of armour based on my -- sadly ongoing --
+dual life doing dev as well as support. In a support role, your armour
+comes from confidence in your knowledge of what you will be asked
+questions about, or what to do even if you don't know. Your course is
+clear and you have your armour of knowledge. Shipping code that isn't
+tested feels a lot like answering the phone to someone who you know is
+going to ask you something you don't know anything about and you don't
+know where to turn. Don't be so foolhardy as to go without such a
+vital comfort, for the sake of, if nothing else, sanity.</p></div>
+    </div>
+
+
+    </div>
+</body>
+</html>

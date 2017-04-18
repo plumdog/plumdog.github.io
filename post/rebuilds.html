@@ -1,0 +1,103 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Andrew Plummer - Blog - Rebuilds</title>
+    <meta name="description" content="
+    Andrew Plummer's Blog - Rebuilds (or Evaluating the baby and the bathwater)
+" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css?_/1" />
+    <link rel="stylesheet" type="text/css" href="/static/pygmentsfriendly.css?_/1" />
+    <script type="text/javascript" src="/static/app.js?_/1"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57205043-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <span class="checkbox">Auto Width? <input type="checkbox" name="fixed-width-toggle" id="fixed-width-toggle" /></span>
+    <div class="navbar" id="top-navbar">
+        <a href="/">Home</a>
+        <a href="/projects/">My Projects</a>
+        <a href="/blog/">Blog</a>
+    </div>
+    <div class="container" id="content-container">
+        
+
+    <div class="blog-post">
+
+        
+            <p class="next-and-prev">
+                
+                    <span class="prev">
+                        Prev: <a href="/post/the-way-testing-feels.html">The Way Testing Feels</a>
+                    </span>
+                
+
+                
+                    <span class="next">
+                        Next: <a href="/post/my-first-linux-kernel-patch-submission.html">My First Linux Kernel Patch Submission</a>
+                    </span>
+                
+        
+
+        <div class="titles">
+            <h2>Rebuilds</h2>
+            
+                <p class="or">~~ or ~~</p>
+                <h3 class="subtitle">Evaluating the baby and the bathwater</h3>
+            
+        </div>
+
+        
+            <p>
+                <span class="tags">Tags:
+                    
+                        <a href="/post/tag/coding-concepts.html">Coding Concepts</a>
+                    
+                </span>
+            </p>
+        
+        <div class="blog-post-content"><p>To rebuild a large system is an awful lot of work. In my view, either
+a rebuild or more likely just a lot of "housework" should be scheduled
+in every year or so. If nothing else, staring down the barrel of
+starting everything over crystallises several things, like evaluating
+which sections will take longest, which utilities are particularly
+valuable and what tools and features are on offer elsewhere, but you
+don't currently have. In most cases, I think a rebuild is a mistake,
+but evaluating one definitely isn't. With reasonable likelihood, you
+should be able to add the new features yourself and spend half the
+amount of time having a cleanup as you would rebuilding.</p>
+<p>More tangibly: we use a venerable (read "old") web framework. It has
+warts and things I dislike and we have written plenty of ugly code on
+top of it. But there's so much good stuff too. We understand its ways,
+and -- with a little force and a little swearing -- we can make it
+understand us. There's plenty I would like to change about it. But I
+think, at least in this case, I would rather make those changes that
+start over.</p>
+<p>However a side project I have <em>does</em> need a rebuild. (Flat PHP,
+anyone?) Why a rebuild? Because it has no direction, no personality,
+nothing that would be missed. Every moment I stare at its code, I feel
+my braincells evaporating. Also, its not very big.</p>
+<p>I think I subscribe more to the idea of continual and vicious
+evolution of a codebase. Replacing your ORM or templating system might
+be a lot of work, but it keeps you focussed and
+driven. Philosophically, I see giving the code two new heads and three
+new handles to be both very practical and pleasingly cathartic.</p></div>
+    </div>
+
+
+    </div>
+</body>
+</html>

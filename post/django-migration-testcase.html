@@ -1,0 +1,96 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Andrew Plummer - Blog - Django Migration Testcase</title>
+    <meta name="description" content="
+    Andrew Plummer's Blog - Django Migration Testcase (or By myself, I'd make rubbish software)
+" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css?_/1" />
+    <link rel="stylesheet" type="text/css" href="/static/pygmentsfriendly.css?_/1" />
+    <script type="text/javascript" src="/static/app.js?_/1"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57205043-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <span class="checkbox">Auto Width? <input type="checkbox" name="fixed-width-toggle" id="fixed-width-toggle" /></span>
+    <div class="navbar" id="top-navbar">
+        <a href="/">Home</a>
+        <a href="/projects/">My Projects</a>
+        <a href="/blog/">Blog</a>
+    </div>
+    <div class="container" id="content-container">
+        
+
+    <div class="blog-post">
+
+        
+            <p class="next-and-prev">
+                
+                    <span class="prev">
+                        Prev: <a href="/post/pythonic-elegance.html">Pythonic Elegance</a>
+                    </span>
+                
+
+                
+                    <span class="next">
+                        Next: <a href="/post/back-to-static.html">Back to Static</a>
+                    </span>
+                
+        
+
+        <div class="titles">
+            <h2>Django Migration Testcase</h2>
+            
+                <p class="or">~~ or ~~</p>
+                <h3 class="subtitle">By myself, I'd make rubbish software</h3>
+            
+        </div>
+
+        
+            <p>
+                <span class="tags">Tags:
+                    
+                        <a href="/post/tag/learning.html">Learning</a>
+                    
+                        <a href="/post/tag/python.html">Python</a>
+                    
+                </span>
+            </p>
+        
+        <div class="blog-post-content"><p>I recently released
+<a href="https://github.com/plumdog/django_migration_testcase">django_migration_testcase</a>. This
+isn't the first time that I've released a Python package - see
+<a href="https://github.com/plumdog/flask_table">flask_table</a> - but it is the
+most complicated. And, specifically, complicated enough that it had
+several serious bugs when I first put it on GitHub.</p>
+<p>After opening up the code, and other people being able to poke about
+with it I fixed two things that were downright broken - including the
+installation from <code>pip</code> and PyPI just not working - and questions
+about how to use it. While the code bugs could have been found by me,
+the documentation and usability bugs would have virtually impossible
+for me to find. It's so hard to identify which parts of your project
+are unclear or easy to use incorrectly.</p>
+<p>For this reason, focusing on the hurdles to new users for your project
+is the best place to spend time, because the more you do it, the more
+it is done for you. And if you neglect it, you're pulling up the
+ladder stopping it from happening at all.</p></div>
+    </div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Andrew Plummer - Blog - Finding the Joys in JavaScript</title>
+    <meta name="description" content="
+    Andrew Plummer's Blog - Finding the Joys in JavaScript (or That time I tried to talk about Meta Structure)
+" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css?_/1" />
+    <link rel="stylesheet" type="text/css" href="/static/pygmentsfriendly.css?_/1" />
+    <script type="text/javascript" src="/static/app.js?_/1"></script>
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57205043-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <span class="checkbox">Auto Width? <input type="checkbox" name="fixed-width-toggle" id="fixed-width-toggle" /></span>
+    <div class="navbar" id="top-navbar">
+        <a href="/">Home</a>
+        <a href="/projects/">My Projects</a>
+        <a href="/blog/">Blog</a>
+    </div>
+    <div class="container" id="content-container">
+        
+
+    <div class="blog-post">
+
+        
+            <p class="next-and-prev">
+                
+                    <span class="prev">
+                        Prev: <a href="/post/django-migration-tests-in-1-7.html">Django Migration Tests in 1.7</a>
+                    </span>
+                
+
+                
+                    <span class="next">
+                        Next: <a href="/post/premature-complications.html">Premature Complications</a>
+                    </span>
+                
+        
+
+        <div class="titles">
+            <h2>Finding the Joys in JavaScript</h2>
+            
+                <p class="or">~~ or ~~</p>
+                <h3 class="subtitle">That time I tried to talk about Meta Structure</h3>
+            
+        </div>
+
+        
+            <p>
+                <span class="tags">Tags:
+                    
+                        <a href="/post/tag/coding-concepts.html">Coding Concepts</a>
+                    
+                        <a href="/post/tag/javascript.html">JavaScript</a>
+                    
+                        <a href="/post/tag/learning.html">Learning</a>
+                    
+                </span>
+            </p>
+        
+        <div class="blog-post-content"><p>I recently made a site that used JavaScript as it's primary means of
+loading new pages. The aim was to create a working mock up of a mobile
+app, so the round trip time of getting a new page was too slow, as
+this needed to emulate screen transitions of an app. So I needed a way
+of inserting new HTML, populated with data. For this I used
+<a href="http://handlebarsjs.com">Handlebars</a>, which offered a simple,
+straightforward, well-documented way of templating with JavaScript.</p>
+<p>This gave me a surprisingly positive experience with a JS project. I
+think this is because it did one job, which neatly covered what I
+needed it do to. Which was in stark contrast to the playing I had done
+with some other, more MVC-style JavaScript frameworks, which seemed so
+monolithic, and so bloated - though I should clarify that I have never
+been the whole-nine-yards with a JavaScript framework, just toy
+projects.</p>
+<p>Which got me thinking about why Handlebars felt easy, but Angular just
+felt stressful. I think this has to be because Handlebars worked in
+addition to my preexisting JS knowledge, it didn't jump in and try to
+make the simple things complicated.</p>
+<p>Which is similar to everyone's favourite JavaScript library: jQuery,
+which just gives you some useful extra things for your toolbelt, but
+doesn't get all up in your business.</p>
+<p>This is basically the Unix principle. Simple, easy to understand
+tools, that do one job. But I found myself thinking about it a little
+differently, because it's more about mixing at source code level,
+rather than combing tools. So I thought about it like the "favour
+composition over inheritance" idiom, but applied at a higher
+level. Something like Angular felt very nested, where the depth just
+made it hard to wrangle. Tools like Handlebars and jQuery sit nicely
+next to each other, and are nicely orthogonal.</p>
+<p>I would love for JavaScript to gain more of these simple tools, and
+let go off the focus on the revolving door of frameworks, of nothing
+else so that tools can actually stick around and not be a flash in the
+pan, that takes so long to learn, and teaches so little.</p></div>
+    </div>
+
+
+    </div>
+</body>
+</html>

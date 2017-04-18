@@ -1,0 +1,160 @@
+@font-face {
+    font-family: "My Custom Font";
+    src: url(/static/simplifica.ttf) format("truetype");
+}
+body { 
+    font-family: "My Custom Font", Verdana, Tahoma;
+    background-color: #f5f5f5;
+    color: #222;
+    margin: 0;
+}
+a {
+    color: #ff2020;
+}
+a:visited {
+    color: #880000;
+}
+h1.myname {
+    text-decoration: underline;
+    -moz-text-decoration-color: #880000;
+    text-decoration-color: #880000;
+}
+blockquote {
+  border-left: 10px solid #aaa;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D";
+}
+blockquote:before {
+  color: #aaa;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote:after {
+  color: #aaa;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+.navbar a {
+    margin: 5px 20px;
+}
+.navbar {
+    padding: 10px 10px 0;
+}
+span.checkbox {
+    margin: 10px;
+    float: right;
+    color: #aaa;
+}
+.navbar, .container {
+    max-width: 768px;
+    margin: 0 auto;
+}
+.navbar.full, .container.full {
+    max-width: none;
+}
+.container {
+    padding: 18px;
+}
+.navbar a {
+    font-size: 28px;
+}
+h1 {
+    font-size: 64px;
+    margin: 24px 0px 32px;
+}
+h2 {
+    font-size: 48px;
+}
+p,  .blog-posts span, ul {
+    font-size: 28px;
+    letter-spacing: 1.2px;
+}
+.blog-posts .blog-post-tags a {
+    margin: 0 5px;
+}
+.blog-post-info {
+    float: right;
+    text-align: right;
+}
+.blog-post .next-and-prev {
+    font-size: 18px;
+    height: 28px;
+}
+.blog-post .next {
+    float: right;
+    text-align: right;
+}
+.blog-post .prev {
+    float: left;
+}
+.blog-post .next, .blog-post .prev {
+    max-width: 45%;
+}
+.blog-post .titles {
+    margin-bottom: 12px;
+}
+.blog-post h2 {
+    font-size: 48px;
+    margin: 0;
+}
+.blog-post .subtitle {
+    font-size: 24px;
+    margin: 0;
+}
+.blog-post p.or {
+    margin: 6px 0;
+}
+.blog-post .tags {
+    font-size: 20px;
+}
+.blog-post p {
+    margin: 14px 0;
+}
+.blog-post-content code {
+    font-size: 18px;
+}
+.about-me h3 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+.about-me h3 span {
+    font-size: 18px;
+}
+.about-me p {
+    margin: 10px 0;
+}
+.projects a.project {
+    font-weight: bold;
+}
+.blog-posts .blog-post-listing p {
+    margin: 0;
+}
+.blog-posts .blog-post-listing {
+    padding: 36px;
+}
+.blog-posts .blog-post-listing {
+    border-bottom: 1px solid #ccc;
+}
+code, .codehilite {
+    background-color: #e5e5e5;
+}
+code {
+    padding: 3px 5px;
+}
+.codehilite {
+    padding: 5px 10px;
+    overflow-x: scroll;
+}
+.codehilite pre {
+    line-height: 200%;
+}
